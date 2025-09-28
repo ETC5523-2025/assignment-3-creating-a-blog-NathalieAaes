@@ -40,6 +40,10 @@ h1, h2, h3 {
   background-color: #00526E !important;
 }
 
+#quarto-document-content {
+  text-align: left !important;
+}
+
 
 
 

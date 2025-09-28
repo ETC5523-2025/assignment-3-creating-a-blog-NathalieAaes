@@ -1,13 +1,25 @@
 ---
-title: "About"
+title: "About Me"
 image: profile.jpg
-about:
+about: 
   template: jolla
   links:
     - icon: github
       text: Github
-      href: https://github.com/etc5523-2022
+      href: https://github.com/NathalieAaes
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/nathalie-aaes-jørgensen-087634271/
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/nathaaes/
 
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+My name is Nathalie Aaes-Jørgensen, and I am pursuing a Master of Science in Actuarial Mathematics at the University of Copenhagen. I am currently spending my final semester on exchange at Monash University in Melbourne, Australia. Going on exchange has always been a dream of mine, as I love traveling and experiencing new cultures. Australia was an obvious choice, and Monash stood out as the only university in the country [accredited by the Institute and Faculty of Actuaries](https://www.monash.edu/business/news/2025/monash-actuarial-program-now-triple-recognised-in-global-first).
+
+Given the small size of Denmark, only 60 students are admitted to the Bachelor of Actuarial Mathematics program each year, which means we quickly become very close. It was thus a natural choice for me to join the committee for our sports events and parties, StatAct, and to serve as a tutor planing the social events and a four-day outing for new students. Although time-consuming, these experiences have been incredibly rewarding and have provided me with skills and memories I would not want to be without.
+
+Alongside my studies, I work part-time at Gjensidige Forsikring, a leading Nordic non-life insurance company. I am part of the Enterprise Data Products Denmark department, where I have developed skills in Power BI, GitHub, and SQL, while working within a scrum framework.
+
+In my free time, I enjoy swimming, ballroom dancing, cooking, trying out new restaurants, and spending time with my friends, family and my boyfriend of seven years.
