@@ -1,0 +1,96 @@
+/* css styles */
+.navbar-dark, .quarto-title-banner {
+  background-color: #F9FFFF;
+}
+
+body {
+  background-color: #F9FFFF;
+  color: #002C3B !important;
+}
+
+h1, h2, h3 {
+  color: #0078A1 !important;
+}
+
+.quarto-categories, .quarto-category {
+  padding: 0 !important;
+}
+
+.quarto-category a {
+  background-color: #0078A1;
+  color: #F8FAFC;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.quarto-category a:hover {
+  background-color: #00526E;
+}
+
+.listing-category {
+  background-color: #0078A1 !important;
+  color: #F8FAFC !important;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.listing-category:hover {
+  background-color: #00526E !important;
+}
+
+#quarto-document-content {
+  text-align: left !important;
+}
+
+/* table styling */
+#tab-hai-burden {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 0.92em;
+}
+#tab-hai-burden th {
+  background-color: #0078A1;
+  color: #F9FFFF;
+  text-align: center;
+  padding: 6px 8px;
+}
+#tab-hai-burden td {
+  text-align: right;
+  padding: 4px 8px;
+}
+#tab-hai-burden td:first-child {
+  text-align: left;
+}
+#tab-hai-burden tr.total-row td {
+  font-weight: bold;
+  border-top: 1px solid #333;
+  padding: 4px 6px;
+}
+td.highlight {
+  background-color: #E0F7FA;
+  border: 1px solid #00ACC1;
+  border-radius: 6px;
+  padding: 4px 6px;
+  }
+#tab-hai-burden caption {
+  caption-side: top;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 0.5em;
+}
+
+
+.footnotes > h2 {
+  display: none;
+}
+
+.footnotes {
+  background-color: #F9FFFF;
+  margin-top: -2em;
+}
+
+
+
