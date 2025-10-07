@@ -1,0 +1,121 @@
+---
+title: "The Hidden Burden of Hospital Infections in Germany"
+author: "Nathalie Aaes-Jørgensen"
+date: "2025-09-28"
+image: "virus.jpg"
+description: "Exploring how data from Germany’s hospitals reveal the true burden of healthcare-associated infections."
+categories: [data analysis, epidemiology, healthcare]
+---
+
+## Why Healthcare-Associated Infections Matter
+Every time we visit a hospital, we expect to get better - not worse. Yet healthcare-associated infections (HAIs) remain a major challenge for worldwide. These are infections people pick up while receiving medical care, and they can have serious consequences for patients while also placing a heavy burden on healthcare systems.
+
+A study from 2019 by Zacher et al.[^zacher] introduces a new methodology and a new `R` package called `BHAI` to measure the burden of these infections across Europe. This methodology makes it possible to quantify the impact of HAIs more precisely than ever before, helping hospitals and policymakers make informed decisions. This post summarises the key findings from Zacher et al.
+
+
+## Insights from the Study
+
+### The Data Behind the Numbers
+Zacher et al.’s study dives into data from the 2011 German point prevalence survey (<span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="A point prevalence survey (PPS) counts how many patients have an infection at a single point in time, rather than following them over time.">PPS</span>), which was part of a larger effort by the European Centre for Disease Prevention and Control, covering 29 EU/EEA countries. Germany was benchmarked against the European average by considering three different datasets:
+
+- A representative sample: 46 hospitals and 9,626 patients  
+- A bigger convenience sample: 132 hospitals and 41,539 patients  
+- EU/EEA-wide data for comparison: 1,149 hospitals and 273,753 patients  
+
+You can explore the data yourself in the `BHAI` `R`-package.
+
+
+### Digging into the Numbers
+By combining these datasets, five major HAIs were examined, including how many deaths they caused, and the overall health impact measured in disability-adjusted life years (<span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="Disability-adjusted life years (DALYs) combine years of life lost due to premature death with years lived with illness or disability, giving a single number for total disease burden.">DALYs</span>).
+
+<figure id="tab-hai-burden">
+<table id="tab-hai-burden">
+  <thead>
+    <tr>
+      <th>Type of HAI<br>(95% CI)</th>
+      <th>Number of HAIs<br>(95% CI)</th>
+      <th>Attributable deaths<br>(95% CI)</th>
+      <th>DALYs<br>(95% CI)</th>
+      <th>YLLs<br>(95% CI)</th>
+      <th>YLDs<br>(95% CI)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="healthcare-associated pneumonia">HAP</span></td>
+      <td class="highlight">106,586<br>(83,618–137,476)</td>
+      <td>3,968<br>(1,107–8,164)</td>
+      <td class="highlight">69,508<br>(34,042–117,232)</td>
+      <td>41,306<br>(11,475–84,483)</td>
+      <td>27,539<br>(16,528–42,824)</td>
+    </tr>
+    <tr>
+      <td><span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="surgical
+site infection">SSI</span></td>
+      <td>93,222<br>(75,369–114,241)</td>
+      <td>2,328<br>(1,888–2,882)</td>
+      <td>28,842<br>(23,313–35,303)</td>
+      <td>28,376<br>(22,983–34,714)</td>
+      <td>452<br>(352–580)</td>
+    </tr>
+    <tr>
+      <td><span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="healthcare-associated primary bloodstream infection">BSI</span></td>
+      <td class="highlight">26,976<br>(16,520–42,252)</td>
+      <td>3,905<br>(2,004–6,987)</td>
+      <td class="highlight">58,350<br>(30,940–104,227)</td>
+      <td>49,578<br>(25,499–90,816)</td>
+      <td>8,787<br>(4,463–16,609)</td>
+    </tr>
+    <tr>
+      <td><span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="healthcare-associated urinary tract infection">UTI</span></td>
+      <td class="highlight">214,150<br>(175,086–253,524)</td>
+      <td>3,664<br>(1,462–7,533)</td>
+      <td class="highlight">66,701<br>(27,890–128,543)</td>
+      <td>44,871<br>(18,043–92,915)</td>
+      <td>20,243<br>(8,095–40,522)</td>
+    </tr>
+    <tr>
+      <td><span style="border-bottom: 1px dashed #0078A1; color:#0078A1;" title="healthcare-associated!Clostridioides difficile!infection">UTI</span></td>
+      <td>36,002<br>(25,108–49,934)</td>
+      <td>1,917<br>(112–4,547)</td>
+      <td>20,890<br>(2,023–49,443)</td>
+      <td>19,937<br>(1,166–47,973)</td>
+      <td>977<br>(172–2,125)</td>
+    </tr>
+    <tr class="total-row">
+      <td>Total</td>
+      <td>478,222<br>(421,350–537,787)</td>
+      <td>16,245<br>(10,863–22,756)</td>
+      <td>248,920<br>(178,693–336,239)</td>
+      <td>190,245<br>(131,301–264,573)</td>
+      <td>59,076<br>(40,263–84,578)</td>
+    </tr>
+  </tbody>
+</table>
+<figcaption>
+   Table 1: Estimated burden of five common hospital-acquired infections (HAIs) in Germany, 2011. Interestingly, HAP (<span style="color:#00ACC1;">106,586</span>) and BSI (<span style="color:#00ACC1;">26,976</span>) together made up only 
+28% of all HAIs (<span style="color:#00ACC1;">69,508</span>+<span style="color:#00ACC1;">58,350</span>), but they accounted for 
+51% of total DALYs. On the other hand, 
+UTI (<span style="color:#00ACC1;">214,150</span>) were more frequent (45% of cases) but contributed just 27% of DALYs (<span style="color:#00ACC1;">66,701</span>). This highlights the different severity and impact of each infection type. Estimates include 95% confidence intervals (CIs) and cover infections in acute-care hospital settings. Source: Zacher et al.
+  </figcaption>
+</figure>
+
+Looking closer at [Table 1](#tab-hai-burden), HAP and BSI clearly punch above their weight. Although they are less common than other infections, they make up a disproportionately large share of the health burden. In contrast, UTI are more frequent, yet its contribution to overall DALYs is smaller. These patterns suggest that targeting prevention efforts toward HAP and BSI could yield the biggest reductions in overall disease burden.
+
+![Annual estimated burden of five common HAIs in Germany and EU/EEA in 2011-2012. Germany had a higher overall burden (<span style="color:#00ACC1;">592 HAIs/100,000</span>) than the EU/EEA average (<span style="color:#00ACC1;">468 HAIs/100,000</span>), largely due to its high number of hospitalised patients. <span style="color:#00ACC1;">UTIs</span> and <span style="color:#00ACC1;">CDI</span> contributed disproportionately to Germany’s burden, while <span style="color:#00ACC1;">HAP</span> contributed relatively less. The estimates include 95% confidence intervals (CIs) and reflect infections in acute-care hospital settings. Source: Zacher et al.](Figure1.png){#fig-hai-burden}
+    
+Extending the comparison to the EU/EEA, @fig-hai-burden shows that Germany experienced a higher burden per 100,000 population: 592 versus 468. This difference mainly reflects Germany’s large number of hospital beds and hospitalised patients, which increases population-level burden even when hospital-level prevalence is relatively low. Patterns also varied by infection type: HAP contributed less to Germany’s total DALYs than the EU/EEA average, while UTIs and CDI made up a larger share.
+
+Beyond differences by infection type and country, the burden of HAIs in Germany is driven primarily by mortality. About 72% of total DALYs come from years of life lost (YLLs), compared with 28% from years lived with disability (YLDs). This indicates that HAIs often result in premature death rather than long-term disability. The highest burden was concentrated among older adults, particularly those aged 65 years and above, reflecting both their vulnerability and the large proportion of hospital patients in this age group
+
+### Looking Above the Numbers
+Zacher et al. estimate that 20–30% of HAIs are preventable through improved hygiene and infection control practices. To make such prevention efforts more effective, the new methodology and the BHAI package were introduced, providing more precise estimates of HAI burden. Preventing even a fraction of these infections can save thousands of lives and reduce healthcare costs significantly. In other words, the numbers aren’t just statistics - they point to actionable ways to protect patients.
+
+## The Takeaway
+The findings from Zacher et al. bring us back to where we started: hospitals are meant to make people better, not worse. However, the data shows that Germany’s burden of HAIs per 100,000 population is higher than the EU/EEA average, meaning there’s still plenty of room for improvement. The new BHAI methodology helps shine a light on where change can have the biggest impact.
+
+Not all infections weigh the same. HAP and BSI cause far more harm than their numbers alone suggest. Focusing prevention efforts on these two could make a real difference in reducing deaths and long-term health loss. And since an estimated 20–30% of HAIs are preventable with better hygiene and infection control, the message is clear: small changes in hospital practice can save thousands of lives.
+
+
+[^zacher]: Zacher B. Haller S., Willrich N., Walter J., Abu Sin M., Cassini A., Plachouras D., Suetens C., Behnke M., Gastmeier P., Wieler Lothar H., Eckmanns T.. Application of a new methodology and R package reveals a high burden of healthcare-associated infections (HAI) in Germany compared to the average in the European Union/European Economic Area, 2011 to 2012. Euro Surveill. 2019;24(46):pii=1900135. [https://doi.org/10.2807/1560-7917.ES.2019.24.46.1900135](https://doi.org/10.2807/1560-7917.ES.2019.24.46.1900135) 
+

@@ -2,12 +2,16 @@ project:
   type: website
 
 website:
-  title: "Nathalie's Blog"
+  title: "Nathalytics"
   navbar:
     right:
       - about.qmd
       - icon: github
         href: https://github.com/NathalieAaes
+      - icon: linkedin
+        href: https://www.linkedin.com/in/nathalie-aaes-jørgensen-087634271/
+      - icon: instagram
+        href: https://www.instagram.com/nathaaes/
 format:
   html:
     theme: yeti
