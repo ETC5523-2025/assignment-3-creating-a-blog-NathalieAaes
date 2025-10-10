@@ -1,0 +1,1 @@
+During the creation of this blog, I used ChatGPT to assist with technical aspects such as CSS styling for the table and it reminded me to add 'output-dir: docs' in the _quarto.yml file for proper publishing. I also used it to check spelling and grammar. All content, analysis, and writing decisions were made independently.
